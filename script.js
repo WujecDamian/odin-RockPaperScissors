@@ -17,17 +17,24 @@ function getComputerChoice () {
 }
 function getHumanChoice () {
   let humanInput = prompt('1-Rock, 2-Paper, 3-Scissors')
+  humanInput = humanInput.toLowerCase()
   switch (humanInput) {
     case '1':
+    case 'rock':
       return 'rock'
       break
     case '2':
+    case 'paper':
       return 'paper'
       break
     case '3':
+    case 'scissors':
       return 'scissors'
       break
   }
 }
-console.log(getComputerChoice())
-console.log(getHumanChoice())
+
+function playRound (humanChoice, computerChoice) {
+  console.log(humanChoice)
+}
+playRound(getHumanChoice(), getComputerChoice())
