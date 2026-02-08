@@ -35,6 +35,25 @@ function getHumanChoice () {
 }
 
 function playRound (humanChoice, computerChoice) {
-  console.log(humanChoice)
+  console.log(`You: ${humanChoice} | Bot: ${computerChoice}`)
+  if (
+    (humanChoice === 'rock' && computerChoice === 'rock') ||
+    (humanChoice === 'paper' && computerChoice === 'paper') ||
+    (humanChoice === 'scissors' && computerChoice === 'scissors')
+  ) {
+    console.log('You got the same one!')
+  } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+    console.log(`You win! ${humanChoice} beats ${computerChoice}!`)
+    humanScore++
+  } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+    console.log(`You win! ${humanChoice} beats ${computerChoice}!`)
+    humanScore++
+  } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+    console.log(`You win! ${humanChoice} beats ${computerChoice}!`)
+    humanScore++
+  } else {
+    console.log(`You lost! ${computerChoice} beats ${humanChoice}!`)
+    computerScore++
+  }
 }
 playRound(getHumanChoice(), getComputerChoice())
