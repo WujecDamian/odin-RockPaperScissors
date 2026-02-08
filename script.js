@@ -57,19 +57,11 @@ function playRound (humanChoice, computerChoice) {
   }
 }
 function playGame () {
-  playRound(getHumanChoice(), getComputerChoice())
-  console.log(`Your score: ${humanScore} || Computer score: ${computerScore}`)
-  playRound(getHumanChoice(), getComputerChoice())
-  console.log(`Your score: ${humanScore} || Computer score: ${computerScore}`)
+  for (let i = 0; i < 5; i++) {
+    playRound(getHumanChoice(), getComputerChoice())
+    console.log(`Your score: ${humanScore} || Computer score: ${computerScore}`)
+  }
 
-  playRound(getHumanChoice(), getComputerChoice())
-  console.log(`Your score: ${humanScore} || Computer score: ${computerScore}`)
-
-  playRound(getHumanChoice(), getComputerChoice())
-  console.log(`Your score: ${humanScore} || Computer score: ${computerScore}`)
-
-  playRound(getHumanChoice(), getComputerChoice())
-  console.log(`Your score: ${humanScore} || Computer score: ${computerScore}`)
   function getWinner () {
     if (humanScore > computerScore) {
       return 'You won!'
