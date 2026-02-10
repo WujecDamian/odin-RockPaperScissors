@@ -6,7 +6,7 @@
 }
 body {
   background-color: black;
-  background-image: url(./images/bg-pattern.jpg);
+  background-image: url("../images/bg-pattern.jpg");
   font-family: "MedievalSharp", cursive;
   font-weight: 400;
   font-style: normal;
