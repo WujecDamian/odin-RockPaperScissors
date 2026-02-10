@@ -5,8 +5,117 @@
   box-sizing: border-box;
 }
 body {
+  background-color: black;
   background-image: url(/images/bg-pattern.jpg);
   font-family: "MedievalSharp", cursive;
   font-weight: 400;
   font-style: normal;
+  color: white;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 5rem 5rem 5rem;
+}
+h1 {
+  margin-top: 2rem;
+  font-size: 7rem;
+  filter: drop-shadow(0px 0px 5px black);
+}
+h2 {
+  font-size: 3rem;
+  filter: drop-shadow(0px 0px 5px black);
+}
+.picks {
+  display: flex;
+  gap: 3rem;
+}
+.choice {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.204) 50%,
+    rgba(255, 0, 0, 0) 70%
+  );
+  border: 1px solid rgba(255, 255, 255, 0);
+  filter: drop-shadow(5px 5px 10px black);
+  border-radius: 10%;
+  transition: all 0.3s ease-in-out;
+}
+.choice:hover {
+  transform: rotate(-45deg);
+  border: 1px solid rgba(255, 255, 255, 0.637);
+  border-radius: 50%;
+}
+.choice:active {
+  transform: rotate(-945deg);
+  border: 1px solid rgba(255, 255, 255, 0.637);
+  transition: 0.1s all ease-in-out;
+  transform: scale(0.98);
+}
+.results {
+  margin: 4rem 0;
+}
+.score {
+  margin: -0.5rem 0;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  text-shadow: -5px 5px 5px black;
+  filter: drop-shadow(5px 5px 10px black);
+  letter-spacing: 0.25ch;
+}
+.bot__pick {
+  display: none;
+  width: 600px;
+  position: absolute;
+  background-image: radial-gradient(
+    rgba(0, 4, 41, 0.822) 60%,
+    rgba(255, 0, 0, 0) 70%
+  );
+  aspect-ratio: 1/1;
+  z-index: 1;
+  animation: bot-reveal 2s ease-in-out;
+}
+@keyframes bot-reveal {
+  0% {
+    opacity: 0;
+    transform: rotate(-65deg);
+  }
+  30% {
+    opacity: 1;
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-2deg);
+  }
+}
+#bot__h2 {
+  text-align: center;
+  padding: 1rem;
+}
+#winner {
+  bottom: 37%;
+  left: 0;
+  right: 0;
+  position: absolute;
+  font-size: 5rem;
+  letter-spacing: 0.5ch;
+  color: orange;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.main {
+  background-image: radial-gradient(
+    rgba(1, 0, 15, 0.685) 60%,
+    rgba(0, 0, 0, 0) 70%
+  );
 }
