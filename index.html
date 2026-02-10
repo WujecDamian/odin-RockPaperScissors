@@ -4,8 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
+    <main class="main">
+      <h1>Tavern</h1>
+      <h2>Rock Paper Scissors</h2>
+      <section class="picks">
+        <div class="picks__item1 choice">
+          <img src="./images/rock.png" alt="Rock" width="300px" />
+        </div>
+        <div class="picks__item2 choice">
+          <img src="./images/paper.png" alt="Rock" width="300px" />
+        </div>
+        <div class="picks__item3 choice">
+          <img src="./images/scissors.png" alt="Rock" width="300px" />
+        </div>
+      </section>
+      <section class="bot__pick">
+        <h2 id="bot__h2">Bot:</h2>
+        <img
+          src="./images/scissors.png"
+          alt="Rock"
+          width="500px"
+          id="bot-image"
+        />
+      </section>
+      <section class="results">
+        <p id="human__score" class="score">Your Score:</p>
+        <p id="computer__score" class="score">Computer Score:</p>
+        <p id="winner" class="score"></p>
+      </section>
+    </main>
     <!-- !script below -->
     <script src="script.js"></script>
   </body>
