@@ -1,38 +1,63 @@
 let humanScore = 0
+let humanScoreElement = document.querySelector('#human__score')
 let computerScore = 0
+let computerScoreElement = document.querySelector('#computer__score')
+let winnerElement = document.querySelector('#winner')
+let humanChoice = document.querySelectorAll('.choice')
+/* bot DOM */
+let botPickSection = document.querySelector('.bot__pick')
+let botImage = document.querySelector('#bot-image')
+let botChoice = document.querySelector('#bot__h2')
+/* Human picks DOM */
+const humanRock = document.querySelector('.picks__item1')
+const humanPaper = document.querySelector('.picks__item2')
+const humanScissors = document.querySelector('.picks__item3')
 
 function getComputerChoice () {
   let computerOutput = Math.floor(Math.random() * 3) + 1
   switch (computerOutput) {
     case 1:
+      botPickSection.setAttribute('style', 'display:block')
+      botImage.setAttribute('src', './images/rock.png')
+      botChoice.innerText = 'Rock'
+      botPickSection.addEventListener('animationend', event => {
+        botPickSection.setAttribute('style', 'display:none')
+      })
       return 'rock'
       break
     case 2:
+      botPickSection.setAttribute('style', 'display:block')
+      botImage.setAttribute('src', './images/paper.png')
+      botChoice.innerText = 'Paper'
+
+      botPickSection.addEventListener('transitionend', event => {
+        botPickSection.setAttribute('style', 'display:none')
+      })
       return 'paper'
       break
     case 3:
+      botPickSection.setAttribute('style', 'display:block')
+      botImage.setAttribute('src', './images/scissors.png')
+      botChoice.innerText = 'Scissors'
+
+      botPickSection.addEventListener('transitionend', event => {
+        botPickSection.setAttribute('style', 'display:none')
+      })
       return 'scissors'
       break
   }
 }
-function getHumanChoice () {
-  let humanInput = prompt('1-Rock, 2-Paper, 3-Scissors')
-  humanInput = humanInput.toLowerCase()
-  switch (humanInput) {
-    case '1':
-    case 'rock':
-      return 'rock'
-      break
-    case '2':
-    case 'paper':
-      return 'paper'
-      break
-    case '3':
-    case 'scissors':
-      return 'scissors'
-      break
-  }
-}
+humanChoice.forEach(e => {
+  e.addEventListener('click', () => {
+    if (e.classList.contains('picks__item1')) {
+      playRound('rock', getComputerChoice())
+    } else if (e.classList.contains('picks__item2')) {
+      playRound('paper', getComputerChoice())
+    } else if (e.classList.contains('picks__item3')) {
+      playRound('scissors', getComputerChoice())
+    }
+  })
+})
 
 function playRound (humanChoice, computerChoice) {
   console.log(`You: ${humanChoice} | Bot: ${computerChoice}`)
@@ -55,22 +80,33 @@ function playRound (humanChoice, computerChoice) {
     console.log(`You lost! ${computerChoice} beats ${humanChoice}!`)
     computerScore++
   }
-}
-function playGame () {
-  for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice())
-    console.log(`Your score: ${humanScore} || Computer score: ${computerScore}`)
+  if (humanScore === 5) {
+    winnerElement.innerText = 'You Won!'
+    humanScoreElement.innerText = ''
+    computerScoreElement.innerText = ''
+    humanScore = 0
+    computerScore = 0
+  } else if (computerScore === 5) {
+    winnerElement.innerText = 'Computer Won!'
+    humanScoreElement.innerText = ''
+    computerScoreElement.innerText = ''
+    humanScore = 0
+    computerScore = 0
+  } else {
+    winnerElement.innerText = ''
   }
 
-  function getWinner () {
-    if (humanScore > computerScore) {
-      return 'You won!'
-    } else if (computerScore > humanScore) {
-      return 'Computer won!'
-    } else {
-      return 'Draw!'
-    }
-  }
-  console.log(getWinner())
+  humanScoreElement.innerText = `Your Score: ${humanScore}`
+  computerScoreElement.innerText = `Computer Score: ${computerScore}`
 }
-playGame()
+
+function getWinner () {
+  if (humanScore > computerScore) {
+    return 'You won!'
+  } else if (computerScore > humanScore) {
+    return 'Computer won!'
+  } else {
+    return 'Draw!'
+  }
+}
+console.log(getWinner())
