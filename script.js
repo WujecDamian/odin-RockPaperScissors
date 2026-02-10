@@ -18,7 +18,7 @@ function getComputerChoice () {
   switch (computerOutput) {
     case 1:
       botPickSection.setAttribute('style', 'display:block')
-      botImage.setAttribute('src', '../images/rock.png')
+      botImage.setAttribute('src', './images/rock.png')
       botChoice.innerText = 'Rock'
       botPickSection.addEventListener('animationend', event => {
         botPickSection.setAttribute('style', 'display:none')
@@ -27,20 +27,20 @@ function getComputerChoice () {
       break
     case 2:
       botPickSection.setAttribute('style', 'display:block')
-      botImage.setAttribute('src', '../images/paper.png')
+      botImage.setAttribute('src', './images/paper.png')
       botChoice.innerText = 'Paper'
 
-      botPickSection.addEventListener('transitionend', event => {
+      botPickSection.addEventListener('animationend', event => {
         botPickSection.setAttribute('style', 'display:none')
       })
       return 'paper'
       break
     case 3:
       botPickSection.setAttribute('style', 'display:block')
-      botImage.setAttribute('src', '../images/scissors.png')
+      botImage.setAttribute('src', './images/scissors.png')
       botChoice.innerText = 'Scissors'
 
-      botPickSection.addEventListener('transitionend', event => {
+      botPickSection.addEventListener('animationend', event => {
         botPickSection.setAttribute('style', 'display:none')
       })
       return 'scissors'
