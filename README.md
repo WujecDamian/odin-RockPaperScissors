@@ -5,7 +5,7 @@ Simple Rock Paper Scissors game built for **The Odin Project Foundations**.
 [Live Demo →](https://wujecdamian.github.io/odin-RockPaperScissors/)
 
 <p align="center">
-  <img src="./screenshot.png" alt="Game screenshot" width="360"/>
+  <img src="./images/screenshot.png" alt="Game screenshot" width="360"/>
 </p>
 
 ## Features
